@@ -1,15 +1,11 @@
 #[
-  For [[ Arduino Uno / Nano ]] and its compatilbes.
+  2019,2021 by audin (http://mpu.seesaa.net)
+  Nim language test program for Arduino UNO and its compatibles.
   AVR = atmega328p / 16MHz
-  avr-gcc: ver.5.4.0 or later
-  nim: from ver.0.19.0 to ver.0.19.6
-  UART baudrate 38400bps
+  avr-gcc: ver.7.3.0 (arduino-1.8.16/hardware/tools/avr/bin)
+  nim-1.6.0
+  UART baudrate 38400 bps
 
-  IMPORTANT NOTE:
-    (1) DON'T USE type of int32. USE uint32 type instead of it.
-    (2) IF USE nim version 0.19.x,            ADD --passC:"-DHAVE_STDINT_H" TO COMPILATION OPTION OF nim.
-        IF USE nim version 1.2.x or later, remove --passC:"-DHAVE_STDINT_H" TO COMPILATION OPTION OF nim.
-        Refer to "nim.cfg".
 ]#
 
 import conf_sys,pwm,systick,spi,uart
@@ -43,10 +39,6 @@ import sd_card,fat_lib,wave_player_main
  --------------/
  */
 ]#
-
-
-when UART_INFO:
-    {.compile:"xprintf.c".}
 
 template initPort*() =
 # set pull up to i/o port.
