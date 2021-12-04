@@ -52,9 +52,21 @@
         Play/Pause:
             Send from key board 's' or 'p' or 'ESC'(Escape char) 
             during Play or Pause mode.     
-            Play ro Pause mode is toggled. 
+            Play or Pause mode would be toggled. 
         ```
-
+* #### Display music filename during play mode by UART output.
+    * This is debug purpose so only display **8.3 type** filename (ansi).
+        - UART output
+            ```
+            OURPLACE.WAV   # Power on. Start playing music.
+            RAINBOWS.WAV
+            ACOUST~1.WAV
+            ARTP7   .WAV
+            HOTELC  .WAV
+            OURPLACE.WAV   # Repeat form first file. 
+            RAINBOWS.WAV
+            ...
+            ```
 * ### Schematic  
     * Arduino Nano    
 <img src="https://github.com/dinau/arduino-wave-player-pwm-super-lite-nim/blob/main/doc/arduino-nano-wave-pwm-player.png?raw=true" width=640>
