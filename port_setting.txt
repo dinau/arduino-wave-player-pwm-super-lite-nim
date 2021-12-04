@@ -1,0 +1,24 @@
+#[
+
+PD2, D2   Button SW
+PD6, D6   LED indicator
+PD7, D7   TEST_PORT
+
+### USART2 ###
+PA2, D1   USART2_TX
+PA3, D0   USART2_RX
+
+### PWM With Timer1 ###
+PB1, D9,   OC1A  LEFT  out
+PB2, D10,  OC1B  RIGHT out
+
+### SPI ###
+PB5, D13 (SCK)
+PB4, D12 (MISO)
+PB3, D11 (MOSI)
+
+PD4, D4  (CS) chip select port
+or
+PB0, D8  (CS) chip select port
+
+]#

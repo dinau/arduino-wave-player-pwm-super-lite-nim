@@ -69,7 +69,8 @@
             ```
 * ### Schematic  
     * Arduino Nano    
-<img src="https://github.com/dinau/arduino-wave-player-pwm-super-lite-nim/blob/main/doc/arduino-nano-wave-pwm-player.png?raw=true" width=640>
+        * External 3.3V power is required so that the current consumption of SD card exceeds instantaneously over 100mA.  
+            * <img src="https://github.com/dinau/arduino-wave-player-pwm-super-lite-nim/blob/main/doc/arduino-nano-wave-pwm-player.png?raw=true" width=640>
 
 * ### Photo
     * Arduino Nano compatible board
