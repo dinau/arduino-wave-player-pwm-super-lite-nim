@@ -1,5 +1,8 @@
 ## Arduino Wave Player PWM - Super Lite -  Nim
 ---
+
+<img src="https://github.com/dinau/arduino-wave-player-pwm-super-lite-nim/blob/main/doc/arduino-nano-wave-pwm-player-real-1280-2020-11.jpg?raw=true" width=320>
+
 * #### Description
     * This project is very simple wave player program with SD card using Nim language.  
 
@@ -40,6 +43,16 @@
         Next song : One click during Play mode.    
         Play Pause: Push long time .     
         Play      : One click from Pause state.    
+        ```
+* #### Control from UART 
+    * Set baudrate: 38400bps
+        ```
+        Next song :
+            Send from key board 'n' or ' '(Space) during Play or Pause mode.    
+        Play/Pause:
+            Send from key board 's' or 'p' or 'ESC'(Escape char) 
+            during Play or Pause mode.     
+            Play ro Pause mode is toggled. 
         ```
 
 * ### Schematic  
