@@ -1,6 +1,6 @@
 import os,strutils
 
---hint:"Conf:off"
+#--hint:"Conf:off"
 --verbosity:1
 const
     TARGET    = "main"
@@ -31,29 +31,33 @@ const
 # Selectable compilation switch
     XPRINTF_FLOAT = false
 
+switch "avr.standalone.gcc.exe"       ,"avr-gcc"
+switch "avr.standalone.gcc.linkerexe" ,"avr-gcc"
 switch "avr.any.gcc.exe"       ,"avr-gcc"
 switch "avr.any.gcc.linkerexe" , "avr-gcc"
-switch "gcc.options.linker"    ,"-static"
 
+switch "gcc.options.linker"    ,"-static"
 switch "gcc.options.always" ,""
 switch "gcc.options.debug"  ,""
 switch "gcc.options.size"   ,"-Os"
 switch "gcc.options.speed"  ,"-Os"
 
-# OS and cpu
---os:any
---cpu:avr
-
 # Memory manager and signal handler
---gc:arc
-switch "d","noSignalHandler"
-switch "d","useMalloc"
+when true:
+    switch "gc","arc"
+    switch "os","any"
+    switch "d","noSignalHandler"
+    switch "d","useMalloc"
+else:
+    switch "gc","none"
+    switch "os","standalone"
 
 # Size optimize
 --opt:size
 switch "d" ,"danger"
 switch "panics", "on"
 
+--cpu:avr
 block:
     # avr-gcc settings for AVR ATMega328p
     --passC:"-DF_CPU=16000000UL"
@@ -62,17 +66,19 @@ block:
 
     # General options for small code size
     --passC:"-std=gnu11"
-    --passC:"-Os -g"
-    --passC:"-ffunction-sections -fdata-sections"
+    --passC:"-Os"
+    --passC:"-ffunction-sections"
+    --passC:"-fdata-sections"
     --passL:"-Wl,--gc-sections"
-    --passC:"-flto -fno-fat-lto-objects"
+    --passC:"-flto"
+    --passC:"-fno-fat-lto-objects"
     --passL:"-flto"
     block: # Note
         # This option was deleted at avr-gcc v11.0
         --passL:"-Wl,--relax"
 
 # Set nimcache
---nimcache:".nimcache"
+switch "nimcache",".nimcache"
 
 # Add source path
 const COMMON_DIR = "src"
