@@ -38,22 +38,17 @@
         ```
     
 * #### User button (S1) 
-    * PD2, D2   Button SW
-        ```sh
-        Next song : One click during Play mode.    
-        Play Pause: Push long time .     
-        Play      : One click from Pause state.    
-        ```
+    * D2 (PD2)   Button SW
+        * **Next song** : One click during Play mode.    
+        * **Play Pause**: Push long time .     
+        * **Play**      : One click from Pause state.    
 * #### Control from UART 
     * Set baudrate: 38400bps
-        ```
-        Next song :
-            Send from key board 'n' or ' '(Space) during Play or Pause mode.    
-        Play/Pause:
-            Send from key board 's' or 'p' or 'ESC'(Escape char) 
-            during Play or Pause mode.     
+        * **Next song**:
+            Send from key board '**n**' or ' '(**Space**) during Play or Pause mode.    
+        * **Play/Pause**:
+            Send from key board '**s**' or '**p**' or '**ESC**'(Escape char) during Play or Pause mode.     
             Play or Pause mode would be toggled. 
-        ```
 * #### Display music filename during play mode by UART output.
     * This is debug purpose so only display **8.3 type** filename (ansi).
         - UART output
@@ -69,7 +64,7 @@
             ```
 * ### Schematic  
     * Arduino Nano    
-        * External 3.3V power is required so that the current consumption of SD card exceeds instantaneously over 100mA.  
+        * External 3.3V power is required so that the current consumption of SD card might exceed instantaneously over 100mA when power becomes on. 
             * <img src="https://github.com/dinau/arduino-wave-player-pwm-super-lite-nim/blob/main/doc/arduino-nano-wave-pwm-player.png?raw=true" width=640>
 
 * ### Photo
