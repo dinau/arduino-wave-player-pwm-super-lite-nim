@@ -83,4 +83,4 @@
     * C++ language
         * [Wave Player Super Lite / STM32(F0,L1,F4) / Mbed2 / C++](https://os.mbed.com/users/mimi3/code/wave_player_super_lite) Completed.
     * Jal language
-        * [Pwm Wave Player Jalv2 / PIC16F1xxx / Jal](https://github.com/dinau/pic16f-wave-palyer-pwm-super-lite) Competed. 
+        * [Pwm Wave Player Jalv2 / PIC16F1xxx / Jal](https://github.com/dinau/16f-wave-player-pwm-super-lite-jalv2)
