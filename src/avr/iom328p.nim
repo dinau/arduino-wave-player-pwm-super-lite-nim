@@ -2,7 +2,7 @@
 # To use in nim language, this file was generated with c2nim and auto edited by
 # modc2nimfile.exe (*.nim)
 # by audin 2019/01,2021/10 (http://mpu.seesaa.net).
-## 
+##
 include "sfr_defs"
 
 ##  Copyright (c) 2007 Atmel Corporation

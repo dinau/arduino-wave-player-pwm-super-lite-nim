@@ -1,5 +1,8 @@
 import os,strutils
 
+#switch "warning","CastSizes:off" # for nim-2.0 or later
+switch "threads","off"
+
 #--hint:"Conf:off"
 --verbosity:1
 const
@@ -11,11 +14,14 @@ const
     OBJDUMP   = "avr-objdump"
     OBJSIZE   = "avr-size"
 
-    # build path
+    # Build path
     BUILD_DIR = ".BUILD"
     OUT_NAME = "arduino_wave_player_super_lite_atmega328p_38400bps"
     target_build_path = os.joinPath(BUILD_DIR,OUT_NAME)
     target_src_path   = os.joinPath(SRC_DIR,TARGET)
+
+    # Select optimaization
+    HAVE_FLTO = false  # Possbility reducing code size but depends on compiler version.
 
 # switch "avr.any.gcc.path" , "D:/arduino-1.8.16/hardware/tools/avr/bin"
 
@@ -44,7 +50,7 @@ switch "gcc.options.speed"  ,"-Os"
 
 # Memory manager and signal handler
 when true:
-    switch "gc","arc"
+    switch "mm","arc"
     switch "os","any"
     switch "d","noSignalHandler"
     switch "d","useMalloc"
@@ -70,9 +76,10 @@ block:
     --passC:"-ffunction-sections"
     --passC:"-fdata-sections"
     --passL:"-Wl,--gc-sections"
-    --passC:"-flto"
-    --passC:"-fno-fat-lto-objects"
-    --passL:"-flto"
+    when HAVE_FLTO:
+        --passC:"-flto"
+        --passC:"-fno-fat-lto-objects"
+        --passL:"-flto"
     block: # Note
         # This option was deleted at avr-gcc v11.0
         --passL:"-Wl,--relax"

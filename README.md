@@ -4,7 +4,8 @@
 <img src="https://github.com/dinau/arduino-wave-player-pwm-super-lite-nim/blob/main/doc/arduino-nano-wave-pwm-player-real-1280-2020-11.jpg?raw=true" width=320>
 
 * #### Description
-    * This project is very simple wave player program with SD card using Nim language.  
+    * This project is very simple wave player program with SD card using Nim language and
+      using only passive parts, capacitor,diode and resistor except SC card.
 
 * #### Prerequisite
     * [nim-1.6.0](https://nim-lang.org/install.html)  
@@ -19,6 +20,21 @@
     [Schematic](#schematic)  
     [Photo](#photo)   
     [Output filter](#output-filter)
+* ### Build project
+    * You can use make command for build management as follows,
+        ```sh
+        $ make # build target
+        $ make clean # clean target
+        $ make w # upload to flash
+        ```
+        or
+        ```sh
+        $ nim make # build target
+        $ nim clean # clean target
+        $ nim w # upload to flash
+        ```
+    * Artifacts (`*`.hex,`*`.lst files etc) would be generate to **.BUILD** folder.
+
 * #### Supported SD card
     * SDSC/SDHC card  FAT16 and FAT32  
         1. First, format SD card using [SD Card Formatter](https://www.sdcard.org/downloads/formatter_4/index.html)
